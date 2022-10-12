@@ -1,8 +1,8 @@
 import React from 'react'
 import { TextInput, Group, Button, Stack, Box , Container, Center} from '@mantine/core';
 import { useState } from 'react';
+
 import app from './authentification/initFirebase';
-import firebase from 'firebase'
 
 const Home = () => {
 
