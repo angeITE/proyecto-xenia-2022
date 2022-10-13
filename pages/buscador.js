@@ -20,6 +20,10 @@ const buscador = ({data}) => {
 
   const getAlimentos = () => data.filter( (e) => e.Alimento.toLowerCase().includes(name.toLocaleLowerCase()) )
   
+/**
+ * It sets the state of consulta to true and then sets the state of alimento to the result of the
+ * getAlimentos() function.
+ */
   const showAlimentos = () => {
     setConsulta(true)
     setAlimento((getAlimentos()))

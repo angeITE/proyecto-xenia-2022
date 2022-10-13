@@ -1,33 +1,35 @@
 import React from 'react'
 import { TextInput, Group, Button, Stack, Box , Container, Center} from '@mantine/core';
 import { useState } from 'react';
-
 import app from './authentification/initFirebase';
+import Link from 'next/link';
+
 
 const Home = () => {
 
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
 
-  const login = (e) => {
-    e.preventDefault();
-    let usuario = user;
-    let contraseña = password;
+   const login = (e) => {
+     e.preventDefault();
+     let usuario = user;
+     let contraseña = password;
 
-    app.auth().signInWithEmailAndPassword(usuario, contraseña).then(u => {})
-    .catch(function(error)
-    {console.log(error)}
-    );
-  } 
+     app.auth().signInWithEmailAndPassword(usuario, contraseña).then(u => {})
+     .catch(function(error)
+     {console.log(error)}
+     );
+     console.log(app)
+   } 
 
-  const signUp = (e) => {
-    let usuario = user;
-    let contraseña = password;
-    app.auth().createUserWithEmailAndPassword(usuario, contraseña).then(u = {})
-    .catch(function(error)
-    {console.log(error)}
-    );
-  }
+   const signUp = (e) => {
+     let usuario = user;
+     let contraseña = password;
+     app.auth().createUserWithEmailAndPassword(usuario, contraseña).then(u = {})
+     .catch(function(error)
+   {console.log(error)}
+     );
+   }
 
   return (
     <div>
@@ -47,7 +49,7 @@ const Home = () => {
           withAsterisk = "false"
           />
           <Center>
-      <Button >Ingresar</Button>
+      <Button onClick={ (e) => login(e)}><Link href='/imc'>Ingresar</Link></Button>
           </Center>
     </Container>
     </div>
